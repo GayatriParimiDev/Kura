@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cherry Cream Soda", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-stitch-b100: #F3F8FF;
+  --color-stitch-b200: #E5F0FD;
+  --color-stitch-b300: #D1E5F4;
+  --color-stitch-b400: #B0C5D7;
+  --color-stitch-b500: #AEC6DA;
+  --color-stitch-b600: #A8C0DC;
+  --color-stitch-navy: #0F2744;
+  --color-stitch-navy-hover: #09182C;
+  
+  --color-primary-light: #F3F8FF;
+  --color-surface-glass: #E5F0FD;
+  --color-accent-1: #D1E5F4;
+  --color-brand-primary: #A8C0DC;
+  --color-brand-secondary: #AEC6DA;
+  --color-brand-muted: #B0C5D7;
+}
+
+/* Custom fine-tuning for Kura's visual feel */
+body {
+  background-color: #F3F8FF;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  color: #0F2744;
+  min-height: 100vh;
+}
+
+/* Clean Minimalism Utility Cards */
+.kura-glass {
+  background: rgba(229, 240, 253, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #D1E5F4;
+}
+
+.kura-glass-card {
+  background: white;
+  border: 1px solid #D1E5F4;
+  box-shadow: 0 4px 20px 0 rgba(15, 39, 68, 0.04);
+}
+
+.cherry-title {
+  font-family: "Cherry Cream Soda", cursive, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.minimal-pill {
+  background-color: white;
+  border: 1px solid #D1E5F4;
+  box-shadow: 0 2px 8px 0 rgba(168, 192, 220, 0.08);
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F3F8FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1E5F4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A8C0DC;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "KURA",
+  "description": "An AI-powered healthcare literacy platform that decodes complex medical report jargon into friendly, accessible, multilingual summaries for patients and families.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
