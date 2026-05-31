@@ -49,20 +49,98 @@ export default function LandingPage({ onNavigate, onOpenDemo, isAuthenticated }:
   return (
     <div className="pb-16" id="landing-page">
       {/* Hero Section */}
-      <section className="relative pt-12 pb-20 px-4 text-center overflow-hidden">
-        {/* Subtle decorative backing gems */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#E5F0FD]/80 blur-3xl -z-10"></div>
+      <section className="relative pt-16 pb-24 px-4 text-center overflow-hidden bg-gradient-to-b from-[#F5F9FD] to-white border-b border-[#D1E5F4] rounded-b-[40px] md:rounded-b-[56px]">
+        {/* Advanced Medical HUD Background Image overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-[0.14] mix-blend-overlay pointer-events-none"
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2070')"
+          }}
+        ></div>
+        
+        {/* Tech grid and premium radial gradients */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,39,68,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,39,68,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E5F0FD]/80 rounded-full blur-3xl -z-10"></div>
         <div className="absolute top-1/3 left-10 w-48 h-48 rounded-full bg-[#D1E5F4]/40 blur-2xl -z-10"></div>
 
-        <div className="max-w-4xl mx-auto">
+        {/* Floating Telemetry Biostatical Cards (Desktop HUD display mimicking user image) */}
+        <div className="hidden lg:block absolute left-4 xl:left-12 top-1/4 max-w-[200px] text-left pointer-events-none z-10 space-y-4">
+          {/* Heart Rate Metric */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="p-4 rounded-2xl bg-white/95 border border-[#D1E5F4] shadow-sm backdrop-blur-md flex items-center gap-3"
+          >
+            <div className="w-9 h-9 rounded-xl bg-rose-50 flex items-center justify-center text-rose-500 shrink-0">
+              <span className="text-lg animate-pulse">❤️</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Pulse Rate</span>
+              <span className="text-lg font-extrabold text-[#0F2744] font-mono leading-none">89 <span className="text-[10px] font-medium text-slate-500">bpm</span></span>
+            </div>
+          </motion.div>
+
+          {/* Blood Pressure Metric */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6 }}
+            className="p-4 rounded-2xl bg-white/95 border border-[#D1E5F4] shadow-sm backdrop-blur-md flex items-center gap-3"
+          >
+            <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500 shrink-0">
+              <span className="text-lg">📊</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Sys / Dia</span>
+              <span className="text-base font-extrabold text-[#0F2744] font-mono leading-none">108/68 <span className="text-[9px] font-medium text-slate-500">mmHg</span></span>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="hidden lg:block absolute right-4 xl:right-12 top-1/4 max-w-[200px] text-left pointer-events-none z-10 space-y-4">
+          {/* SpO2 Oxygen Metric */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 }}
+            className="p-4 rounded-2xl bg-white/95 border border-[#D1E5F4] shadow-sm backdrop-blur-md flex items-center gap-3"
+          >
+            <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-500 shrink-0">
+              <span className="text-lg">💧</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">SpO2 Level</span>
+              <span className="text-lg font-extrabold text-[#0F2744] font-mono leading-none">99 <span className="text-[10px] font-medium text-slate-500">%</span></span>
+            </div>
+          </motion.div>
+
+          {/* Body Temperature Metric */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8 }}
+            className="p-4 rounded-2xl bg-white/95 border border-[#D1E5F4] shadow-sm backdrop-blur-md flex items-center gap-3"
+          >
+            <div className="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center text-sky-500 shrink-0">
+              <span className="text-lg">🌡️</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Body Temp</span>
+              <span className="text-lg font-extrabold text-[#0F2744] font-mono leading-none">36.8 <span className="text-[10px] font-medium text-slate-500">°C</span></span>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
           {/* Tagline */}
           <motion.div 
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 mb-6 text-xs font-semibold text-[#4e6a8e] bg-[#E5F0FD] border border-[#D1E5F4] rounded-full"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 mb-6 text-xs font-bold text-[#0F2744] bg-[#E5F0FD] border border-[#D1E5F4] rounded-full shadow-xs"
           >
-            <Sparkles className="w-3.5 h-3.5" />
-            AI-POWERED PATIENT EMPOWERMENT
+            <Sparkles className="w-3.5 h-3.5 text-[#38BDF8]" />
+            AI-POWERED CLINICAL HELPER & LITERACY SAAS
           </motion.div>
 
           {/* Title */}
@@ -70,10 +148,10 @@ export default function LandingPage({ onNavigate, onOpenDemo, isAuthenticated }:
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-6xl text-[#2D3E50] leading-tight mb-6"
+            className="text-4xl sm:text-6xl font-extrabold text-[#0F2744] leading-tight mb-6 tracking-tight"
           >
             Your Medical Reports <br />
-            <span className="cherry-title text-[#5e81a9] drop-shadow-sm font-normal">Explained in Plain Language.</span>
+            <span className="cherry-title text-[#38BDF8] drop-shadow-xs font-bold">Explained in Plain Language.</span>
           </motion.h1>
 
           {/* Subtext */}
@@ -81,11 +159,29 @@ export default function LandingPage({ onNavigate, onOpenDemo, isAuthenticated }:
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-semibold"
           >
             Upload blood panels, lipid profiles, metabolic records, and clinical logs. 
             KURA translates medical jargon into highly digestible, multilingual, empathetic explanations so you can own your next doctor's visit.
           </motion.p>
+
+          {/* Small Embedded Biometric Telemetry Segment on Mobile */}
+          <div className="lg:hidden grid grid-cols-2 gap-3 max-w-sm mx-auto mb-10 text-left">
+            <div className="p-3.5 rounded-2xl bg-white border border-[#D1E5F4] shadow-sm flex items-center gap-2.5">
+              <span className="text-xl animate-pulse shrink-0">❤️</span>
+              <div>
+                <span className="text-[9px] font-bold text-slate-400 block uppercase">Pulse</span>
+                <span className="text-sm font-extrabold text-[#0F2744] font-mono">89 bpm</span>
+              </div>
+            </div>
+            <div className="p-3.5 rounded-2xl bg-white border border-[#D1E5F4] shadow-sm flex items-center gap-2.5">
+              <span className="text-xl shrink-0">💧</span>
+              <div>
+                <span className="text-[9px] font-bold text-slate-400 block uppercase">O2 level</span>
+                <span className="text-sm font-extrabold text-[#0F2744] font-mono">99% SpO2</span>
+              </div>
+            </div>
+          </div>
 
           {/* Primary CTA Block */}
           <motion.div 
@@ -97,7 +193,7 @@ export default function LandingPage({ onNavigate, onOpenDemo, isAuthenticated }:
           >
             <button 
               onClick={() => onNavigate(isAuthenticated ? 'dashboard' : 'login')}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#A8C0DC] hover:bg-[#86a7cc] text-white font-semibold text-sm transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 shadow-md shadow-[#A8C0DC]/20"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#0F2744] hover:bg-[#09182C] text-white font-bold text-sm transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 shadow-md shadow-[#0F2744]/20 cursor-pointer"
               id="cta-analyze"
             >
               Start Free Analysis
@@ -105,7 +201,7 @@ export default function LandingPage({ onNavigate, onOpenDemo, isAuthenticated }:
             </button>
             <button 
               onClick={() => onOpenDemo('demo-lipid-panel-2026')}
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-[#E5F0FD]/40 text-[#2D3E50] border border-[#D1E5F4] font-semibold text-sm transition-all duration-200"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-[#F3F8FF] text-[#0F2744] border-2 border-[#D1E5F4] font-bold text-sm transition-all duration-200 cursor-pointer shadow-xs"
               id="cta-view-demo"
             >
               Explore Sample Demo Report
@@ -117,12 +213,12 @@ export default function LandingPage({ onNavigate, onOpenDemo, isAuthenticated }:
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="max-w-2xl mx-auto p-4 rounded-3xl bg-amber-50/70 border border-amber-200/80 text-left flex gap-3 shadow-sm mb-12"
+            className="max-w-2xl mx-auto p-5 rounded-3xl bg-amber-50/70 border border-amber-200/80 text-left flex gap-3 shadow-sm mb-4"
           >
             <span className="text-xl">⚠️</span>
             <div>
               <h5 className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-0.5">Crucial Medical Safety Shield</h5>
-              <p className="text-xs text-amber-700 leading-relaxed">
+              <p className="text-xs text-amber-700 leading-relaxed font-semibold">
                 KURA is strictly an educational tool to foster health literacy and vocabulary comprehension. <strong>It is not a diagnostic platform.</strong> It does not replace, change, or prescribe medical treatments, nor does it substitute for consultation with a licensed clinical practitioner.
               </p>
             </div>
