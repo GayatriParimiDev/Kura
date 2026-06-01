@@ -2,8 +2,6 @@
 
 <br />
 
-<!-- Logo / Banner -->
-<img width="120" height="120" alt="KURA Logo" src="https://img.icons8.com/fluency/120/000000/heart-health.png" />
 
 <h1>KURA — AI Healthcare Literacy Platform</h1>
 
